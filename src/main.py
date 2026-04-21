@@ -3,6 +3,9 @@ from api.Clase_ClienteAPI import *
 from basedatos.Clase_GestorBaseDatos import *
 from eda.Clase_ProcesadorEDA import  *
 #from modelos.prueba_algoritmos import*
+from visualizacion.Clase_Visualizador import Visualizador
+#from Prediccion_CarreraSTEM.src.visualizacion.Clase_Visualizador import Visualizador
+import matplotlib.pyplot as plt
 import numpy as np
 import os
 
@@ -88,3 +91,37 @@ if __name__ == "__main__":
     print(df_final.dtypes)
     print(df_final.describe())
     print(df_final.isnull().sum())
+
+### Clase visualizador
+if __name__ == "__main__":
+
+    viz = Visualizador(df_csv_limpio, df_api_limpio, df_db_limpio1, df_db_limpio2)
+
+    print("Mostrando: Evolución de Internet")
+    fig_internet = viz.lineal_internet()
+    plt.show()
+
+    print("Mostrando: Distribución de Edades")
+    fig_edad = viz.histo_distribuccion_edad()
+    plt.show()
+
+    print("Mostrando: Matriz de Correlación")
+    viz_final = Visualizador(df_final)
+    fig_corr = viz_final.heatmap_correlacion()
+    plt.show()
+
+    print("Mostrando: Evolución de las carreras STEM")
+    fig_evolucion = viz.lineal_evolucion()
+    plt.show()
+
+    print("Mostrando: Cantidad de estudiantes de acuerdo su tipo de sexo en carreras STEM/No STEM")
+    fig_analisis_stem_nostem = viz.barras_analisis_stem_nostem()
+    plt.show()
+
+    print("Mostrando: Porcentaje de estudiantes que eligen carreras STEM en zonas urbanas")
+    fig_zona_stem = viz.barras_apiladas_zona_stem()
+    plt.show()
+
+    #print("Mostrando: Promedio de salarios por categoria de las carreras")
+    #fig_salarios = viz.barras_horizontales_salarios(df_final)
+    #plt.show()
