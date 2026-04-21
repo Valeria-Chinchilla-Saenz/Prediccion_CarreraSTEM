@@ -5,16 +5,18 @@ import plotly.express as px
 import numpy as np
 
 class Visualizador:
-    def __init__(self, dataframe):
-        self.dataframe = dataframe
+    def __init__(self, df_csv, df_api=None, df_db1=None, df_db2=None):
+        self.df_csv = df_csv
+        self.df_api = df_api
+        self.df_db1 = df_db1
+        self.df_db2 = df_db2
         sns.set_style("whitegrid")
-
 
 # Gráficos de líneas
 
     #Grafico de lineas que muestra la tendendencia de estudiantes STEM por region
     def lineal_evolucion(self):
-        def_temp = self.dataframe.copy()
+        def_temp = self.df_csv.copy()
 
         #filtra unicamente las carreras STEM
         def_temp = [def_temp['STEM_MICITT'] == 'STEM']
@@ -41,10 +43,10 @@ class Visualizador:
     def lineal_internet(self):
 
         #transforma los datos
-        df_pivote = self.dataframe.pivot(index = 'anno', columns = 'region', values = 'prom_acceso_internet')
+        df_pivote = self.df_db1.pivot(index = 'anno', columns = 'region', values = 'prom_acceso_internet')
 
         fig, ax = plt.subplots(figsize=(10,6))
-        ax = (df_pivote.plot(kind = 'line', ax = ax, maker = 's', markersize = 6))
+        ax = (df_pivote.plot(kind = 'line', ax = ax, marker = 's', markersize = 6))
 
         ax.set_title('Evolución a acceso a Internet por región de Costa Rica')
         ax.set_xlabel('Anno (2019-2022)')
@@ -65,7 +67,7 @@ class Visualizador:
     def barras_analisis_stem_nostem(self):
 
         #tabla de agrupacion: agrupa el "sexo" en las filas y "stem_micitt" en las columnas
-        tabla_conteo = pd.crosstab(self.dataframe['sexo'], self.dataframe['stem_micitt'])
+        tabla_conteo = pd.crosstab(self.df_csv['sexo'], self.df_csv['stem_micitt'])
         fig, ax = tabla_conteo.plot(kind = 'bar', figsize = (10,6), width = 0.7, color = ['#f8766d', '#00bfc4'])
 
         ax.set_title('Comparación de los estudiantes matriculados en áreas stem/no stem según su sexo')
@@ -84,7 +86,7 @@ class Visualizador:
     #Grafico de barras apiladas que muestra el procentaje de los estudiantes que eligen carreras STEM
     #comparado con los urbanos
     def barras_apiladas_zona_stem(self):
-        tabla = pd.crosstab(self.dataframe['zona_urbano_rural_estudiante'], self.dataframe['stem_micitt'])
+        tabla = pd.crosstab(self.df_csv['zona_urbano_rural_estudiante'], self.df_csv['stem_micitt'])
 
         tabla_porcentaje = tabla.div(tabla.sum(1).astype(float), axis=0)
 
@@ -106,7 +108,7 @@ class Visualizador:
     #Grafico de barras horizontales que muestran el promedio de salario por categoria de las carreras
     def barras_horizontales_salarios(self):
 
-        df_salarios = self.dataframe.groupby('categoria')['prom_salario'].mean().sort_values(ascending = True)
+        df_salarios = self.df_db2.groupby('categoria')['prom_salario'].mean().sort_values(ascending = True)
 
         fig, ax = plt.subplots(figsize=(10,6))
 
@@ -129,7 +131,7 @@ class Visualizador:
         #figura
         fig, ax = plt.subplots(figsize=(10,6))
         #dibuja el histograma
-        sns.hisplot(self.dataframe['edad'], bins = 15, kde = True, color = 'skyblue', alpha = 0.7, ax = ax)
+        sns.histplot(self.df_csv['edad'], bins = 15, kde = True, color = 'skyblue', alpha = 0.7, ax = ax)
 
         ax.set_title('Distribucción de edades de los estudiante')
         ax.set_xlabel('Edad')
@@ -137,5 +139,22 @@ class Visualizador:
 
         ax.grid(axis = 'y', linestyle = '--', alpha = 0.7)
 
+        plt.tight_layout()
+        return fig
+
+#Correlaccion
+    #Grafico de correlacion entre variables numericas
+    def heatmap_correlacion(self):
+
+        #selecciona las variables numericas
+        df_num = self.df_csv.select_dtypes(['number'])
+        matriz_corr = df_num.corr()
+
+        fig, ax = plt.subplots(figsize=(10,6))
+
+        #matiz de colores
+        sns.heatmap(matriz_corr, annot=True, cmap='RdYlGn', fmt='.2f', ax = ax)
+
+        ax.set_title('Matriz de correlacion de las variables numericas')
         plt.tight_layout()
         return fig
