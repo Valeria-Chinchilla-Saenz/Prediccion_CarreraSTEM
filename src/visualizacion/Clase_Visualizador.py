@@ -5,11 +5,12 @@ import plotly.express as px
 import numpy as np
 
 class Visualizador:
-    def __init__(self, df_csv, df_api=None, df_db1=None, df_db2=None):
+    def __init__(self, df_csv, df_api=None, df_db1=None, df_db2=None, df_final=None):
         self.df_csv = df_csv
         self.df_api = df_api
         self.df_db1 = df_db1
         self.df_db2 = df_db2
+        self.df_final = df_final
         sns.set_style("whitegrid")
 
 # Gráficos de líneas
@@ -19,16 +20,26 @@ class Visualizador:
         def_temp = self.df_csv.copy()
 
         #filtra unicamente las carreras STEM
-        def_temp = [def_temp['STEM_MICITT'] == 'STEM']
+        def_temp = def_temp[def_temp['stem_micitt'] == 'stem']
+
+        # Filtra para eliminar las filas con zonas no válidas
+        def_temp = def_temp[
+            ~def_temp['zona_de_urbanizacion_estudiante'].isin(['sin_informacion', 'no_aplica'])
+        ]
 
         #agrupa por año y zona urbanación del estudiante
-        promedio_zonaurb = def_temp.groupby(['AÑO', 'ZONA_URBANIZACION_ESTUDIANTE']).mean().sort_index()
+        promedio_zonaurb = (def_temp.groupby(['ano', 'zona_de_urbanizacion_estudiante']).size().unstack(fill_value = 0))
 
-        fig, ax = plt.subplots(12,6)
+        #filtro para eliminar los datos que sean sin informacion y no aplica
+        columnas_excluir = ['sin_informacion', 'no_aplica']
+        promedio_zonaurb = promedio_zonaurb.drop(columns=columnas_excluir, errors='ignore')
 
-        #dibujar linea por zona urbanizacion
-        ax.plot(promedio_zonaurb, promedio_zonaurb['zona_urbanizacion_estudiante'],
-                marker='o', linestyle='-', markersize=5, label='zona urbanizacion')
+        fig, ax = plt.subplots(figsize = (12,6))
+
+        # Dibujar una línea por cada zona
+        for zona in promedio_zonaurb.columns:
+            ax.plot(promedio_zonaurb.index, promedio_zonaurb[zona],
+                    marker='o', linestyle='-', markersize=5, label=zona)
 
         ax.set_title('Tendencia de estudiantes STEM por zona urbanizacion (2019-2022)')
         ax.set_xlabel('Año')
@@ -68,7 +79,9 @@ class Visualizador:
 
         #tabla de agrupacion: agrupa el "sexo" en las filas y "stem_micitt" en las columnas
         tabla_conteo = pd.crosstab(self.df_csv['sexo'], self.df_csv['stem_micitt'])
-        fig, ax = tabla_conteo.plot(kind = 'bar', figsize = (10,6), width = 0.7, color = ['#f8766d', '#00bfc4'])
+
+        ax = tabla_conteo.plot(kind = 'bar', figsize = (10,6), width = 0.7, color = ['#f8766d', '#00bfc4'])
+        fig = ax.figure
 
         ax.set_title('Comparación de los estudiantes matriculados en áreas stem/no stem según su sexo')
         ax.set_xlabel('Sexo')
@@ -86,7 +99,11 @@ class Visualizador:
     #Grafico de barras apiladas que muestra el procentaje de los estudiantes que eligen carreras STEM
     #comparado con los urbanos
     def barras_apiladas_zona_stem(self):
-        tabla = pd.crosstab(self.df_csv['zona_urbano_rural_estudiante'], self.df_csv['stem_micitt'])
+        df_filtrado = self.df_csv[
+            ~self.df_csv['zona_urbano_rural_estudiante'].isin(['sin_informacion', 'no_aplica'])
+        ]
+
+        tabla = pd.crosstab(df_filtrado['zona_urbano_rural_estudiante'], df_filtrado['stem_micitt'])
 
         tabla_porcentaje = tabla.div(tabla.sum(1).astype(float), axis=0)
 
@@ -102,59 +119,5 @@ class Visualizador:
         #Ajuste de la leyenda para no tapar el gráfico
         ax.legend(title = 'Categoria STEM', labels=['No STEM', 'STEM'], bbox_to_anchor = (1.05, 1), loc = 'upper left')
 
-        plt.tight_layout()
-        return fig
-
-    #Grafico de barras horizontales que muestran el promedio de salario por categoria de las carreras
-    def barras_horizontales_salarios(self):
-
-        df_salarios = self.df_db2.groupby('categoria')['prom_salario'].mean().sort_values(ascending = True)
-
-        fig, ax = plt.subplots(figsize=(10,6))
-
-        #dibujo de las barras horrizontales
-        colores = sns.color_palette("viridis", n_colors=len(df_salarios))
-        ax.barh(df_salarios.index, df_salarios, color= colores)
-
-        #cuadricula en el eje x para facilitar la comparación de valores
-        ax.grid(axis = 'x', linestyle = '--', alpha = 0.7)
-
-        fig.tight_layout()
-        return fig
-
-
-
-#Histograma
-    #Histograma que muestra la distribución de edad de los estudiantes
-    def histo_distribuccion_edad(self):
-
-        #figura
-        fig, ax = plt.subplots(figsize=(10,6))
-        #dibuja el histograma
-        sns.histplot(self.df_csv['edad'], bins = 15, kde = True, color = 'skyblue', alpha = 0.7, ax = ax)
-
-        ax.set_title('Distribucción de edades de los estudiante')
-        ax.set_xlabel('Edad')
-        ax.set_ylabel('Cantidad de estudiantes')
-
-        ax.grid(axis = 'y', linestyle = '--', alpha = 0.7)
-
-        plt.tight_layout()
-        return fig
-
-#Correlaccion
-    #Grafico de correlacion entre variables numericas
-    def heatmap_correlacion(self):
-
-        #selecciona las variables numericas
-        df_num = self.df_csv.select_dtypes(['number'])
-        matriz_corr = df_num.corr()
-
-        fig, ax = plt.subplots(figsize=(10,6))
-
-        #matiz de colores
-        sns.heatmap(matriz_corr, annot=True, cmap='RdYlGn', fmt='.2f', ax = ax)
-
-        ax.set_title('Matriz de correlacion de las variables numericas')
         plt.tight_layout()
         return fig
