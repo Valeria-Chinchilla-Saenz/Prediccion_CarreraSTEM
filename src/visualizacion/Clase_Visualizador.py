@@ -121,3 +121,55 @@ class Visualizador:
 
         plt.tight_layout()
         return fig
+
+    #Grafico de barras horizontales que muestran el promedio de salario por categoria de las carreras
+    #def barras_horizontales_salarios(self):
+
+        df_salarios = self.df_final.groupby('categoria')['prom_salario'].mean().sort_values(ascending = True)
+
+        fig, ax = plt.subplots(figsize=(10,6))
+
+        #dibujo de las barras horrizontales
+        colores = sns.color_palette("viridis", n_colors=len(df_salarios))
+        ax.barh(df_salarios.index, df_salarios, color= colores)
+
+        #cuadricula en el eje x para facilitar la comparación de valores
+        ax.grid(axis = 'x', linestyle = '--', alpha = 0.7)
+
+        fig.tight_layout()
+        return fig
+
+#Histograma
+    #Histograma que muestra la distribución de edad de los estudiantes
+    def histo_distribuccion_edad(self):
+
+        #figura
+        fig, ax = plt.subplots(figsize=(10,6))
+        #dibuja el histograma
+        sns.histplot(self.df_csv['edad'], bins = 15, kde = True, color = 'skyblue', alpha = 0.7, ax = ax)
+
+        ax.set_title('Distribucción de edades de los estudiante')
+        ax.set_xlabel('Edad')
+        ax.set_ylabel('Cantidad de estudiantes')
+
+        ax.grid(axis = 'y', linestyle = '--', alpha = 0.7)
+
+        plt.tight_layout()
+        return fig
+
+#Correlaccion
+    #Grafico de correlacion entre variables numericas
+    def heatmap_correlacion(self):
+
+        #selecciona las variables numericas
+        df_num = self.df_csv.select_dtypes(['number'])
+        matriz_corr = df_num.corr()
+
+        fig, ax = plt.subplots(figsize=(10,6))
+
+        #matiz de colores
+        sns.heatmap(matriz_corr, annot=True, cmap='RdYlGn', fmt='.2f', ax = ax)
+
+        ax.set_title('Matriz de correlacion de las variables numericas')
+        plt.tight_layout()
+        return fig
