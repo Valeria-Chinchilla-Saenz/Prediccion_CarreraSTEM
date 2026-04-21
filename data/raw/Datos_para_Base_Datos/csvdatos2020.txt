@@ -1,0 +1,82 @@
+Cantón,Penetracion_2020
+Mora,32.7
+San Ramón,31.9
+Montes de Oca,31.0
+Grecia,30.1
+Tarrazú,30.0
+La Unión,28.4
+Heredia,28.2
+Cartago,28.0
+San Mateo,27.8
+San José,25.9
+Escazú,25.8
+Paraíso,24.4
+Santa Ana,24.3
+Goicoechea,24.3
+Puriscal,24.2
+Naranjo,23.7
+Acosta,23.6
+Turrialba,23.4
+Garabito,23.1
+Dota,23.0
+Vázquez de Coronado,22.9
+Santa Cruz,22.8
+Curridabat,22.1
+Jiménez,22.0
+Alajuela,21.9
+Zarcero,21.6
+Barva,21.4
+San Isidro,21.2
+Nicoya,20.8
+Carrillo,20.6
+Pococí,19.9
+San Pablo,19.8
+San Rafael,19.8
+Desamparados,19.7
+Montes de Oro,19.2
+Siquirres,18.7
+Esparza,18.5
+Santo Domingo,18.4
+Parrita,18.3
+Flores,18.0
+León Cortés Castro,17.9
+Tibás,17.8
+Sarapiquí,17.2
+Moravia,16.7
+Turrubares,16.3
+El Guarco,16.2
+Aserrí,15.9
+San Carlos,15.4
+Santa Bárbara,15.3
+Liberia,15.3
+Belén,15.0
+Puntarenas,14.7
+Coto Brus,14.3
+Pérez Zeledón,13.9
+Palmares,13.8
+Orotina,13.6
+Atenas,13.3
+Aguirre,13.2
+Alajuelita,12.3
+Oreamuno,12.0
+Valverde Vega,11.6
+Limón,11.6
+Abangares,11.4
+Poás,11.3
+Osa,11.1
+Guácimo,10.9
+Nandayure,10.7
+Hojancha,10.0
+Buenos Aires,9.9
+Alvarado,9.6
+Corredores,9.2
+Golfito,9.1
+Bagaces,8.8
+Tilarán,8.7
+Guatuso,7.8
+Upala,7.3
+Talamanca,7.0
+Matina,6.5
+Cañas,6.4
+La Cruz,5.1
+Los Chiles,4.5

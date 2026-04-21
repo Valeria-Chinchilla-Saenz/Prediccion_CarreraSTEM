@@ -1,0 +1,83 @@
+Provincia,Cantón,Internet_2021,Internet_2022
+San José,Acosta,21.2,22.7
+San José,Alajuelita,15.6,16.6
+San José,Aserrí,20.1,21.1
+San José,Curridabat,21.5,22.4
+San José,Desamparados,20.9,20.8
+San José,Dota,21.6,23.8
+San José,Escazú,28.4,29.3
+San José,Goicoechea,23.0,23.7
+San José,León Cortés Castro,16.2,18.6
+San José,Montes de Oca,28.7,29.8
+San José,Mora,31.5,29.2
+San José,Moravia,22.8,23.8
+San José,Pérez Zeledón,20.8,22.9
+San José,Puriscal,21.6,20.1
+San José,San José,25.1,25.1
+San José,Santa Ana,31.8,32.8
+San José,Tarrazú,24.6,25.1
+San José,Tibás,19.6,19.2
+San José,Turrubares,19.6,19.7
+San José,Vázquez de Coronado,22.2,21.9
+Alajuela,Alajuela,24.0,25.4
+Alajuela,Atenas,20.0,21.2
+Alajuela,Grecia,21.9,22.2
+Alajuela,Guatuso,8.4,8.6
+Alajuela,Los Chiles,3.7,3.5
+Alajuela,Naranjo,20.4,19.5
+Alajuela,Orotina,22.9,24.9
+Alajuela,Palmares,19.3,20.1
+Alajuela,Poás,13.3,16.1
+Alajuela,Río Cuarto,5.2,8.3
+Alajuela,San Carlos,17.6,18.9
+Alajuela,San Mateo,31.0,31.9
+Alajuela,San Ramón,26.4,27.1
+Alajuela,Sarchí,10.2,8.8
+Alajuela,Upala,6.3,6.2
+Alajuela,Zarcero,16.7,20.4
+Cartago,Alvarado,8.2,6.4
+Cartago,Cartago,25.7,26.5
+Cartago,El Guarco,18.2,20.5
+Cartago,Jiménez,21.9,20.4
+Cartago,La Unión,22.2,23.1
+Cartago,Oreamuno,15.0,14.5
+Cartago,Paraíso,21.4,19.8
+Cartago,Turrialba,19.3,18.4
+Heredia,Barva,22.4,22.5
+Heredia,Belén,21.8,22.5
+Heredia,Flores,16.8,18.0
+Heredia,Heredia,30.1,31.7
+Heredia,San Isidro,26.4,23.3
+Heredia,San Pablo,28.6,31.4
+Heredia,San Rafael,17.2,18.6
+Heredia,Santa Bárbara,18.6,19.8
+Heredia,Santo Domingo,21.8,23.3
+Heredia,Sarapiquí,14.7,12.8
+Guanacaste,Abangares,16.2,15.1
+Guanacaste,Bagaces,16.0,15.9
+Guanacaste,Cañas,15.6,16.0
+Guanacaste,Carrillo,26.4,28.8
+Guanacaste,Hojancha,14.7,15.2
+Guanacaste,La Cruz,8.9,9.1
+Guanacaste,Liberia,22.4,24.0
+Guanacaste,Nandayure,15.2,12.5
+Guanacaste,Nicoya,23.4,23.7
+Guanacaste,Santa Cruz,19.9,23.0
+Guanacaste,Tilarán,19.3,20.6
+Puntarenas,Buenos Aires,9.6,11.2
+Puntarenas,Corredores,13.3,12.9
+Puntarenas,Coto Brus,15.2,17.2
+Puntarenas,Esparza,20.2,21.0
+Puntarenas,Garabito,14.0,14.9
+Puntarenas,Golfito,13.1,14.0
+Puntarenas,Montes de Oro,24.0,25.3
+Puntarenas,Osa,19.1,23.0
+Puntarenas,Parrita,23.4,25.1
+Puntarenas,Puntarenas,18.6,20.5
+Puntarenas,Quepos,20.6,22.9
+Limón,Guácimo,11.0,11.1
+Limón,Limón,20.0,19.6
+Limón,Matina,7.2,7.3
+Limón,Pococí,16.9,18.0
+Limón,Siquirres,16.8,17.3
+Limón,Talamanca,6.1,5.9

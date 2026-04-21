@@ -1,0 +1,83 @@
+Cantón,Región de planificación,Penetración a Internet fijo 2019
+Abangares,Chorotega,13.30%
+Acosta,Central,14.70%
+Alajuela,Central,20.70%
+Alajuelita,Central,13.80%
+Alvarado,Central,6.70%
+Aserrí,Central,15.70%
+Atenas,Central,16.30%
+Bagaces,Chorotega,12.80%
+Barva,Central,21.40%
+Belén,Central,21.70%
+Buenos Aires,Brunca,7.50%
+Cañas,Chorotega,13.40%
+Carrillo,Chorotega,22.20%
+Cartago,Central,22.00%
+Corredores,Brunca,13.00%
+Coto Brus,Brunca,8.30%
+Curridabat,Central,21.90%
+Desamparados,Central,18.90%
+Dota,Central,14.00%
+El Guarco,Central,13.70%
+Escazú,Central,31.20%
+Esparza,Pacífico Central,17.60%
+Flores,Central,17.70%
+Garabito,Pacífico Central,28.60%
+Goicoechea,Central,20.60%
+Golfito,Brunca,12.00%
+Grecia,Central,22.60%
+Guácimo,Huetar Caribe,7.60%
+Guatuso,Huetar Norte,4.90%
+Heredia,Central,26.80%
+Hojancha,Chorotega,8.10%
+Jiménez,Central,16.30%
+La Cruz,Chorotega,8.50%
+La Unión,Central,20.40%
+León Cortés Castro,Central,11.90%
+Liberia,Chorotega,20.30%
+Limón,Huetar Caribe,17.50%
+Los Chiles,Huetar Norte,2.90%
+Matina,Huetar Caribe,4.90%
+Montes De Oca,Central,28.50%
+Montes De Oro,Pacífico Central,18.70%
+Mora,Central,25.80%
+Moravia,Central,20.80%
+Nandayure,Chorotega,8.70%
+Naranjo,Central,15.90%
+Nicoya,Chorotega,17.90%
+Oreamuno,Central,11.80%
+Orotina,Pacífico Central,17.50%
+Osa,Brunca,14.20%
+Palmares,Central,17.10%
+Paraíso,Central,17.20%
+Parrita,Pacífico Central,20.90%
+Pérez Zeledón,Brunca,17.40%
+Poás,Central,10.00%
+Pococí,Huetar Caribe,13.70%
+Puntarenas,Pacífico Central,16.00%
+Puriscal,Central,17.80%
+Quepos (Antes Aguirre),Pacífico Central,16.90%
+Río Cuarto,Huetar Norte,0.00%
+San Carlos,Huetar Norte,14.30%
+San Isidro,Central,22.20%
+San José,Central,23.80%
+San Mateo,Pacífico Central,23.00%
+San Pablo,Central,24.90%
+San Rafael,Central,18.90%
+San Ramón,Central,22.50%
+Santa Ana,Central,28.00%
+Santa Barbara,Central,16.00%
+Santa Cruz,Chorotega,24.30%
+Santo Domingo,Central,20.60%
+Sarapiquí,Huetar Norte,12.00%
+Siquirres,Huetar Caribe,13.70%
+Talamanca,Huetar Caribe,5.60%
+Tarrazú,Central,19.40%
+Tibás,Central,16.90%
+Tilarán,Chorotega,16.30%
+Turrialba,Central,16.50%
+Turrubares,Central,15.20%
+Upala,Huetar Norte,4.50%
+Valverde Vega,Central,7.40%
+Vázquez De Coronado,Central,20.50%
+Zarcero,Central,17.00%
