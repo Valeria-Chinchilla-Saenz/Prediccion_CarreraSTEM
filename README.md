@@ -73,6 +73,21 @@ API: Índices de pobreza por región
 BD: Promedio de salario por carrera, Acceso a internet por región
 
 
+librerias usadas:
+import numpy as np
+import os
+import joblib
+import unicodedata
+import matplotlib.pyplot as plt
+import seaborn as sns
+import pandas as pd
+import plotly.express as px
 
+Dashboard:
+import streamlit as st
+import pandas as pd
+import numpy as np
+import joblib
+import plotly.express as px
 
 
