@@ -93,3 +93,17 @@ class Procesador_EDA:
         self.dataframe = self.dataframe.drop(columns=columnas_eliminadas, errors='ignore').copy()
         return self.dataframe
 
+    def resumen_estadistico(self):
+        resumen = self.df.describe(include = 'number') #incluye solo las columnas numericas
+        return resumen
+
+    def matriz_correlacion(self):
+        columnas_numericas = self.df. select_dtypes(include = 'number').corr(method = 'pearson')
+
+        if 'id' in columnas_numericas.columns:
+            columnas_numericas = columnas_numericas.drop(columns = ['id'])
+
+        #Calculo de la correlacion
+        matriz = columnas_numericas.corr(method = 'pearson')
+        return matriz
+
