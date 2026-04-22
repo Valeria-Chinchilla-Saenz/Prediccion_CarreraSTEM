@@ -52,8 +52,14 @@ Códigos de los años en que se va a filtrar lo los datos
 Base de datos: creada, recopila el promedio de salario por carrera del 2019-2022 (la información de el salario es publicada cada 4 años por la fuente por lo que ) y el índice promedio de acceso a internet por región del 2019 a 2022.
 
 Promedio de salario por carrera :https://radiografia.conare.ac.cr/
-Acceso a internet por región:
+Acceso a internet por región: Los datos se extrajeron de multiples tablas disponibles en distintos pdfs con informacion oficial de las condiciones cantonales de la conexion a internet del pais en el periodo del 2019 al 2020
 
+Se adjuntan los links que poseen los datos reales la informacion se encuentra en los anexsos de estos documentos:
+2019:https://micitt.go.cr/sites/default/files/2023-09/2021-Informe-conectividad-cantonal.pdf
+
+2020:https://www.sutel.go.cr/sites/default/files/reporte_cantonal_2020.pdf
+
+ 2021-2022:https://www.sutel.go.cr/sites/default/files/reporte_cantonal_2023_vf.pdf
 
 Variables:
 Variable objetivo: STEM_MICITT (Binaria) 
